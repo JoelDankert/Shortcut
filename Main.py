@@ -6,23 +6,22 @@ shortcut = []
 
 #accounts
 word.extend(['joel.dankert@gmail.com','+4917660186268','Ukii#3647','Ukii','xXUkiiXx'])
-shortcut.extend(['em#','tel#','dc#','steam#','epic#'])
-
-#programming
-#word.extend(['if (True):\n','else:\n','elif:\n','for i in range(0,len(),1):\n','while (True):\n','print('')'])
-#shortcut.extend(['if#','else#','elif#','for#','while#','print#'])
+shortcut.extend(['e m # ','t e l # ','d c # ','s t e a m # ','e p i c # '])
 
 #abkürzungen
 word.extend(['sorry','nice try','good luck, have fun!','my bad','thank you','no problem','good job'])
-shortcut.extend(['sry#','nt#','glhf#','mb#','thx#','np#','gj#'])
+shortcut.extend(['s r y # ','n t # ','g l h f # ','m b # ','t h x # ','n p # ','g j # '])
 
 #addresses
 word.extend(['Aschenreutestraße 1, 78591 Durchhausen','Sallancher Str. 5, 78549 Spaichingen','In d. Breite 21, 78591 Durchhausen'])
-shortcut.extend(['ad.home#','ad.school#','ad.fadw#'])
+shortcut.extend(['a d . h o m e # ','a d . s c h o o l # ','a d . f a d w # '])
 
 keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#','space','+','-']
-keystell = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#',' ','+','-']
-#                                                                                                                                       /\ vorrübergehent 'z' entfernt
+keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l ', 'm ', 'n ', 'o ', 'p ', 'q ', 'r ', 's ', 't ', 'u ', 'v ', 'w ', 'x ', 'y ','z ','ae','oe','ue','ss','1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','0 ','. ',', ','# ','  ','+ ','- ']
+
+
+
+#                                                                                                                                       /\ 
 pressed = []
 laststatuspressed = []
 recordedkeys = ''
@@ -53,7 +52,7 @@ def checkkeys():
             pressed[i] = False
 
 def typeword(remove,add):
-    for x in range(0,len(remove)):
+    for x in range(0,len(remove)/2):
         keyboard.send('backspace')
     keyboard.write(add)
     
