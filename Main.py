@@ -16,6 +16,10 @@ shortcut.extend(['em#','tel#','dc#','steam#','epic#'])
 word.extend(['sorry','nice try','good luck, have fun!','my bad','thank you','no problem','good job'])
 shortcut.extend(['sry','nt','glhf','mb','thx','np','gj'])
 
+#addresses
+word.extend(['Aschenreutestraße 1, 78591 Durchhausen','Sallancher Str. 5, 78549 Spaichingen','In d. Breite 21, 78591 Durchhausen'])
+shortcut.extend(['ad.home#','ad.school#','ad.fadw#'])
+
 keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#','space','+','-']
 keystell = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#',' ','+','-']
 #                                                                                                                                       /\ vorrübergehent 'z' entfernt
