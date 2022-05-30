@@ -14,7 +14,7 @@ shortcut.extend(['em#','tel#','dc#','steam#','epic#'])
 
 #abkürzungen
 word.extend(['sorry','nice try','good luck, have fun!','my bad','thank you','no problem','good job'])
-shortcut.extend(['sry','nt','glhf','mb','thx','np','gj'])
+shortcut.extend(['sry#','nt#','glhf#','mb#','thx#','np#','gj#'])
 
 #addresses
 word.extend(['Aschenreutestraße 1, 78591 Durchhausen','Sallancher Str. 5, 78549 Spaichingen','In d. Breite 21, 78591 Durchhausen'])
