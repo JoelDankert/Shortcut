@@ -51,10 +51,16 @@ def checkkeys():
         else:
             pressed[i] = False
 
-
+def checkforremove(remove):
+    sum = 0
+    for x in range(0,len(remove),2):
+        for i in range(0,len(keystell),1):
+            if remove[x] + remove[x+1] == keystell[i]:
+                sum = sum + keyremove[i]
+    return sum
 
 def typeword(remove,add):
-    for x in range(0,len(remove)/2):
+    for x in range(0,checkforremove(remove)):
         keyboard.send('backspace')
     keyboard.write(add)
     
