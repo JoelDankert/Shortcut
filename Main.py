@@ -16,12 +16,12 @@ shortcut.extend(['s r y # ','n t # ','g l h f # ','m b # ','t h x # ','n p # ','
 word.extend(['Aschenreutestraße 1, 78591 Durchhausen','Sallancher Str. 5, 78549 Spaichingen','In d. Breite 21, 78591 Durchhausen'])
 shortcut.extend(['a d . h o m e # ','a d . s c h o o l # ','a d . f a d w # '])
 
-keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#','space','+','-']
-keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l ', 'm ', 'n ', 'o ', 'p ', 'q ', 'r ', 's ', 't ', 'u ', 'v ', 'w ', 'x ', 'y ','z ','ae','oe','ue','ss','1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','0 ','. ',', ','# ','  ','+ ','- ']
+keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#','space','+','-','tab','shift','ctrl','alt']
+keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l ', 'm ', 'n ', 'o ', 'p ', 'q ', 'r ', 's ', 't ', 'u ', 'v ', 'w ', 'x ', 'y ','z ','ae','oe','ue','ss','1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','0 ','. ',', ','# ','  ','+ ','- ','ta','sh','co','al']
+keyremove = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0]
 
 
-
-#                                                                                                                                       /\ 
+#                                                                                                                                       
 pressed = []
 laststatuspressed = []
 recordedkeys = ''
@@ -50,6 +50,8 @@ def checkkeys():
             pressed[i] = True
         else:
             pressed[i] = False
+
+
 
 def typeword(remove,add):
     for x in range(0,len(remove)/2):
