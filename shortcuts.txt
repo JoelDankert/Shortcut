@@ -1,5 +1,4 @@
-#accounts
-#
+###########################################-contact-###########################################
 joel.dankert@gmail.com
 e m # 
 Ukii#3647<
@@ -8,9 +7,11 @@ Ukii
 s t e a m # 
 xXUkiiXx
 e p i c # 
-#
-#abkürzungen
-#
++49 17660186268
+t e l # 
+Aschenreutestrasse 1, 78591 Durchhausen
+a d # 
+###########################################-calls-###########################################
 sorry!
 s r y # 
 nice try.
@@ -25,9 +26,7 @@ no problem.
 n p # 
 good job!
 g j # 
-#
-#email writing
-#
+###########################################-email-writing-###########################################
 Sehr geehrte Frau -- ,**
 e m . s t a r t . f # 
 Sehr geehrter Herr -- ,**
@@ -38,9 +37,7 @@ Sehr geehrte Frau -- ,*****Mit freundlichen Gruessen,*Joel Dankert
 e m . p r e . f # 
 Sehr geehrter Herr -- ,*****Mit freundlichen Gruessen,*Joel Dankert
 e m . p r e . m # 
-#
-#phone
-#
+###########################################-phone-###########################################
 +49 17660186268
 t e l . m e # 
 +49 1731577955
@@ -51,9 +48,7 @@ t e l . p a #
 t e l . o m # 
 +49 74649979994
 t e l . h o # 
-#
-#addresses
-#
+###########################################-adresses-###########################################
 Aschenreutestrasse 1, 78591 Durchhausen
 a d . h o m e # 
 Sallancher Str. 5, 78549 Spaichingen
