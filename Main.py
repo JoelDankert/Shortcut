@@ -76,7 +76,12 @@ def checkforremove(remove):
 def typeword(remove,add):
     for x in range(0,checkforremove(remove)):
         keyboard.send('backspace')
-    keyboard.write(add)
+
+    for letter in add:
+        if letter == '*':
+            keyboard.send('enter')
+        else:
+            keyboard.write(letter)
     
 def checkpatterns():
     global recordedkeys
@@ -87,13 +92,15 @@ def checkpatterns():
         
 loadfile()
 addtopressed()
+lastbackspace = False
 while(True):
     time.sleep(0.01)
     checkkeys()
     addstrokes()
+    if keyboard.is_pressed('backspace') and lastbackspace == False and len(recordedkeys) > 0:
+        recordedkeys = recordedkeys[:-2]
     checkpatterns()
-
-    #print(recordedkeys)
 
     #keep at end
     updatelaststate()
+    lastbackspace = keyboard.is_pressed('backspace')
