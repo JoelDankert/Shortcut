@@ -92,7 +92,13 @@ def typeword(remove,add):
             if letter == '*':
                 time.sleep(0,2)
             else:
-                keyboard.press(letter)
+                keyindex = keys.index(letter)
+                if keymacropressed[keyindex] == False:
+                    keyboard.press(letter)
+                    keymacropressed[keys.index(letter)] = True
+                else:
+                    keyboard.release(letter)
+                    keymacropressed[keys.index(letter)] = False
     else:
         for letter in add:
             if letter == '*':
