@@ -42,6 +42,17 @@ Sehr geehrte Frau -- ,%%%%Mit freundlichen Gruessen,%Joel Dankert
 e m . p r e . f # 
 Sehr geehrter Herr -- ,%%%%Mit freundlichen Gruessen,%Joel Dankert
 e m . p r e . m # 
+###########################################-emails-###########################################
+joel.dankert@gmail.com
+e m . m e # 
+ingrid.dankert@gmail.com
+e m . m a # 
+joergeckehard@gmail.com
+e m . p a # 
+info@ferien-auf-dem-wasser.de
+e m . f a d w # 
+krzl@gymnasium-spaichingen.de
+e m . s c h o o l # 
 ###########################################-phone-###########################################
 +49 17660186268
 t e l . m e # 
