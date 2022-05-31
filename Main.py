@@ -52,10 +52,8 @@ def addtopressed():
 
 def checkkeys():
     for i,k in enumerate(keys):
-        if keyboard.is_pressed(k):
-            pressed[i] = True
-        else:
-            pressed[i] = False
+        pressed[i] = keyboard.is_pressed(k)
+        
 
 def addstrokes():
     global recordedkeys
