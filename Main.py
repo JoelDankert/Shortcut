@@ -46,16 +46,6 @@ def addtopressed():
     for i in keys:
         pressed.append(False)
         laststatuspressed.append(False)
-        
-def updatelaststate():
-    for i,k in enumerate(pressed):
-        laststatuspressed[i] = k
-
-def addstrokes():
-    global recordedkeys
-    for i,k in enumerate(keys):
-        if laststatuspressed[i] == False and pressed[i] == True:
-            recordedkeys = recordedkeys + keystell[i]
 
 def checkkeys():
     for i,k in enumerate(keys):
@@ -63,6 +53,23 @@ def checkkeys():
             pressed[i] = True
         else:
             pressed[i] = False
+
+def addstrokes():
+    global recordedkeys
+    for i,k in enumerate(keys):
+        if laststatuspressed[i] == False and pressed[i] == True:
+            recordedkeys = recordedkeys + keystell[i]
+        
+def updatelaststate():
+    for i,k in enumerate(pressed):
+        laststatuspressed[i] = k
+
+def checkpatterns():
+    global recordedkeys
+    for i,s in enumerate(shortcut):
+        if recordedkeys.endswith(s):
+            typeword(s,word[i])
+            recordedkeys = ''
 
 def checkforremove(remove):
     sum = 0
@@ -82,13 +89,7 @@ def typeword(remove,add):
         else:
             keyboard.write(letter)
     
-def checkpatterns():
-    global recordedkeys
-    for i,s in enumerate(shortcut):
-        if recordedkeys.endswith(s):
-            typeword(s,word[i])
-            recordedkeys = ''
-        
+
 loadfile()
 addtopressed()
 lastbackspace = False
