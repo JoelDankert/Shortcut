@@ -28,7 +28,7 @@ def loadfile():
     shortcutfile = open('shortcuts.txt','r')
     lines = shortcutfile.readlines()
 
-    
+    index = 0
     for line in lines:
         if line[0] != '#':
             if line[-1] == '\n':
