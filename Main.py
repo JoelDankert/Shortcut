@@ -8,6 +8,8 @@ keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o
 keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l ', 'm ', 'n ', 'o ', 'p ', 'q ', 'r ', 's ', 't ', 'u ', 'v ', 'w ', 'x ', 'y ','z ','ae','oe','ue','ss','1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','0 ','. ',', ','# ','  ','+ ','- ','ta','sh','co','al','en']
 keyremove = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1]
 
+
+keymacropressed = []
                                                                                   
 pressed = []
 laststatuspressed = []
@@ -46,6 +48,7 @@ def addtopressed():
     for i in keys:
         pressed.append(False)
         laststatuspressed.append(False)
+        keymacropressed.append(False)
 
 def checkkeys():
     for i,k in enumerate(keys):
@@ -81,7 +84,6 @@ def checkforremove(remove):
 
 def typeword(remove,add):
     
-    
     for x in range(0,checkforremove(remove)):
         keyboard.send('backspace')
 
@@ -90,7 +92,7 @@ def typeword(remove,add):
             if letter == '*':
                 time.sleep(0,2)
             else:
-                keyboard.write(letter)
+                keyboard.press(letter)
     else:
         for letter in add:
             if letter == '*':
