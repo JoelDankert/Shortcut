@@ -80,14 +80,23 @@ def checkforremove(remove):
     return sum
 
 def typeword(remove,add):
+    
+    
     for x in range(0,checkforremove(remove)):
         keyboard.send('backspace')
 
-    for letter in add:
-        if letter == '*':
-            keyboard.send('enter')
-        else:
-            keyboard.write(letter)
+    if add[0] == '&':
+         for letter in add:
+            if letter == '*':
+                time.sleep(0,2)
+            else:
+                keyboard.write(letter)
+    else:
+        for letter in add:
+            if letter == '*':
+                keyboard.send('enter')
+            else:
+                keyboard.write(letter)
     
 
 loadfile()
