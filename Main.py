@@ -1,4 +1,5 @@
 import keyboard
+import mouse
 import time
 
 word = []
@@ -39,8 +40,6 @@ def loadfile():
                 shortcut.append(line)
             index = index + 1
 
-    #print(word)
-    #print(shortcut)
             
 
 def addtopressed():
@@ -89,27 +88,39 @@ def typeword(remove,add):
         keyboard.send('backspace')
 
     if add[0] == '&':
-         for letter in add[1:]:
-            if letter == '*':
-                time.sleep(0.2)
-            else:
-                keyindex = keys.index(letter)
-                if keymacropressed[keyindex] == False:
-                    keyboard.press(letter)
-                    #print('pressed '+ letter)
-                    keymacropressed[keys.index(letter)] = True
-                else:
-                    keyboard.release(letter)
-                    
-                    #print('released '+ letter)
-                    keymacropressed[keys.index(letter)] = False
+        addmacro(add)
     else:
-        for letter in add:
-            if letter == '*':
-                keyboard.send('enter')
+        addtext(add)
+
+def addtext(add):
+    for letter in add:
+        if letter == '*':
+            time.sleep(0.2)
+        elif letter == '%':
+            keyboard.send('enter')
+        else:
+            keyboard.write(letter)
+
+def addmacro(add):
+    add = add[1:]
+    for i in range(0,len(add),2):
+        letter = add[i] + add[i+1]
+        if letter == '* ':
+            time.sleep(0.2)
+        elif letter == 'lc':
+            mouse.click('left')
+        elif letter == 'rc':
+            mouse.click('right')
+        else:
+            keyindex = keystell.index(letter)
+            if keymacropressed[keyindex] == False:
+                keyboard.press(keys[keyindex])
+                keymacropressed[keyindex] = True
             else:
-                keyboard.write(letter)
-    
+                keyboard.release(keys[keyindex])
+                keymacropressed[keyindex] = False
+
+
 
 loadfile()
 addtopressed()
@@ -121,6 +132,7 @@ while(True):
     if keyboard.is_pressed('backspace') and lastbackspace == False and len(recordedkeys) > 0:
         recordedkeys = recordedkeys[:-2]
     checkpatterns()
+
 
     #keep at end
     updatelaststate()
