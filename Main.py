@@ -81,21 +81,27 @@ def checkforremove(remove):
     return sum
 
 def typeword(remove,add):
+    global keymacropressed
+    for kmp in keymacropressed:
+        kmp = False
     
     for x in range(0,checkforremove(remove)):
         keyboard.send('backspace')
 
     if add[0] == '&':
-         for letter in add:
+         for letter in add[1:]:
             if letter == '*':
-                time.sleep(0,2)
+                time.sleep(0.2)
             else:
                 keyindex = keys.index(letter)
                 if keymacropressed[keyindex] == False:
                     keyboard.press(letter)
+                    #print('pressed '+ letter)
                     keymacropressed[keys.index(letter)] = True
                 else:
                     keyboard.release(letter)
+                    
+                    #print('released '+ letter)
                     keymacropressed[keys.index(letter)] = False
     else:
         for letter in add:
