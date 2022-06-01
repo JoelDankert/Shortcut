@@ -7,9 +7,9 @@ keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o
 keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l ', 'm ', 'n ', 'o ', 'p ', 'q ', 'r ', 's ', 't ', 'u ', 'v ', 'w ', 'x ', 'y ','z ','ae','oe','ue','ss','1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','0 ','. ',', ','# ','  ','+ ','- ','ta','sh','co','al','en','wi']
 keyremove = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0]
 
-
 keymacropressed = [] #for macros: list for checking which keys are held down (simulated)
-                                                                                  
+
+                                                                                 
 pressed = []
 laststatuspressed = []
 recordedkeys = ''
