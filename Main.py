@@ -8,7 +8,7 @@ keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l
 keyremove = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0]
 
 
-keymacropressed = []
+keymacropressed = [] #for macros: list for checking which keys are held down (simulated)
                                                                                   
 pressed = []
 laststatuspressed = []
@@ -17,12 +17,11 @@ recordedkeys = ''
 time.sleep(1)
 
 
-def loadfile():
+def loadfile(): #loads file 'shortcut.txt' in same folder of application.
     global word
     global shortcut
     word = []
     shortcut = []
-
 
     shortcutfile = open('shortcuts.txt','r')
     lines = shortcutfile.readlines()
@@ -40,44 +39,35 @@ def loadfile():
 
             
 
-def addtopressed():
+def addtopressed(): #extends all lists to full.
     global pressed
     for i in keys:
         pressed.append(False)
         laststatuspressed.append(False)
         keymacropressed.append(False)
 
-def checkkeys():
+def checkkeys(): #checks keys and edits pressed list.
     for i,k in enumerate(keys):
         pressed[i] = keyboard.is_pressed(k)
         
-
-def addstrokes():
+def addstrokes(): #checks pressed and laststatuspressed to update strokes.
     global recordedkeys
     for i,k in enumerate(keys):
         if laststatuspressed[i] == False and pressed[i] == True:
             recordedkeys = recordedkeys + keystell[i]
         
-def updatelaststate():
+def updatelaststate(): #sets last frame of keystrokes.
     for i,k in enumerate(pressed):
         laststatuspressed[i] = k
 
-def checkpatterns():
+def checkpatterns(): #checks recorded keystrokes for shortcut patterns and, if so, executes the according command.
     global recordedkeys
     for i,s in enumerate(shortcut):
         if recordedkeys.endswith(s):
             typeword(s,word[i])
             recordedkeys = ''
 
-def checkforremove(remove):
-    sum = 0
-    for x in range(0,len(remove),2):
-        for i in range(0,len(keystell),1):
-            if remove[x] + remove[x+1] == keystell[i]:
-                sum = sum + keyremove[i]
-    return sum
-
-def typeword(remove,add):
+def typeword(remove,add): #types or executes command and removes typted keys.
     global keymacropressed
     for kmp in keymacropressed:
         kmp = False
@@ -90,7 +80,16 @@ def typeword(remove,add):
     else:
         addtext(add)
 
-def addtext(add):
+
+def checkforremove(remove): #checks how many keys need to be removed to delete shortcut.
+    sum = 0
+    for x in range(0,len(remove),2):
+        for i in range(0,len(keystell),1):
+            if remove[x] + remove[x+1] == keystell[i]:
+                sum = sum + keyremove[i]
+    return sum
+
+def addtext(add): #types text
     for letter in add:
         if letter == '*':
             time.sleep(0.1)
@@ -99,7 +98,7 @@ def addtext(add):
         else:
             keyboard.write(letter)
 
-def addmacro(add):
+def addmacro(add): #execute macro
     global keymacropressed
     add = add[1:]
     for i in range(0,len(add),2):
@@ -120,7 +119,7 @@ def addmacro(add):
                 keymacropressed[keyindex] = False
 
 
-
+###########-LOOP-###########
 loadfile()
 addtopressed()
 lastbackspace = False
