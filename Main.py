@@ -114,6 +114,7 @@ def addmacro(add): #execute macro
 
 
 ###########-LOOP-###########
+print('#####-MADE-BY-UKII-#####')
 loadfile()
 addtopressed()
 lastbackspace = False
