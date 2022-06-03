@@ -8,7 +8,7 @@ pip install keyboard
 pip install mouse
 ```
 
-Install the shortcut.py file from the shortcut repository and run it
+Download the shortcut.py file from the shortcut repository and run it.
 
 ## Usage
 
@@ -43,7 +43,7 @@ e m ta
 ```
 
 ### Create macro
-to create macros use an '&' in front of your line. use the same two letter keycodes as in 'Create shortcut'. To press a key, type the keycode, then type the keycode again to release a key.  
+to create macros use an '&' in front of your line. Use the same two letter keycodes as in 'Create shortcut'. To press a key, type the keycode, then type the keycode again to release a key.  
 For example, ctrl + z would look like this:
 
 ```bash
