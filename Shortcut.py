@@ -108,10 +108,6 @@ def addmacro(add): #execute macro
         letter = add[i] + add[i+1]
         if letter == '* ':
             time.sleep(0.1)
-        elif letter == 'lc':
-            mouse.click('left')
-        elif letter == 'rc':
-            mouse.click('right')
         else:
             keyindex = keystell.index(letter)
             if keymacropressed[keyindex] == False:
