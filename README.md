@@ -50,7 +50,7 @@ For example, ctrl + z would look like this:
 &coz z co
 shortcut
 ```
-'&' indicate macro
+'&' indicate macro  
 'co' press control  
 'z ' press z  
 'z ' release z  
