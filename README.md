@@ -8,7 +8,7 @@ pip install keyboard
 pip install mouse
 ```
 
-install the shortcut.py file from the shortcut repository and run it
+Install the shortcut.py file from the shortcut repository and run it
 
 ## Usage
 
