@@ -69,6 +69,7 @@ def addstrokes(): #checks pressed and laststatuspressed to update strokes.
     for i,k in enumerate(keys):
         if laststatuspressed[i] == False and pressed[i] == True:
             recordedkeys = recordedkeys + keystell[i]
+            print('detected key press: '+keystell[i])
         
 def updatelaststate(): #sets last frame of keystrokes.
     for i,k in enumerate(pressed):
