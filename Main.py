@@ -1,6 +1,7 @@
 import keyboard
 import mouse
 import time
+import os
 
 shortcut = []
 keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#','space','+','-','tab','shift','ctrl','alt','enter','win']
@@ -11,15 +12,22 @@ pressed = [] #holds which keys are pressed
 laststatuspressed = [] #holds which keys were pressed last frame
 recordedkeys = '' #records keypresses in variable using last and current status
 
-def loadfile(): #loads file 'shortcut.txt' in same folder of application.
-    global word
-    global shortcut
+def loadfiles(): #loads files in same folder ending with '*.short'.
     word = []
     shortcut = []
 
-    shortcutfile = open('shortcuts.txt','r')
-    lines = shortcutfile.readlines()
+    for filename in os.listdir(os.getcwd()):
+        l = len(filename)
+        if filename[l - 6:] == '.short':
+            loadfilename(filename)
+        
+    
 
+def loadfilename(shortcutfile):
+    global word
+    global shortcut
+    
+    lines = shortcutfile.readlines()
     index = 0
     for line in lines:
         if line[0] != '#':
@@ -30,8 +38,6 @@ def loadfile(): #loads file 'shortcut.txt' in same folder of application.
             else:
                 shortcut.append(line)
             index = index + 1
-
-            
 
 def addtopressed(): #extends all lists to full.
     global pressed
@@ -115,7 +121,7 @@ def addmacro(add): #execute macro
 
 ###########-LOOP-###########
 print('#####-MADE-BY-UKII-#####')
-loadfile()
+loadfiles()
 addtopressed()
 lastbackspace = False
 while(True):
