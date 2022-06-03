@@ -25,20 +25,20 @@ corresponding shortcut (create shortcut)
 A '.short' file can contain as many shortcuts as you want, as long as you seperate them using a new line.
 
 ### Create text
-To create text, simply type the text you want in one line, use a '%' to type a new line. You can also use '\*' to wait for 0.1 seconds before continuing.
+To create text, simply type the text you want in one line, use a '%' to type a new line. You can also use '\*' to wait 0.1 seconds before continuing.
 
 ### Create shortcut
 To create a shortcut, type the keystrokes in a new line under the text or macro, each keystroke is represented by a pair of two letters.  
 'a ', 'b ', 'c ', ...  
-are used for letters from the default english alphabet. Note that after keys, which only use one letter, a 'space' char follows.  
+are used for letters from the default english alphabet. Note that after keys, which only use one letter, a whitespace ('space') follows.  
 Other Keys like tab, alt, shift, control and windows are represented using  
 'ta', 'al', 'sh', 'co', 'wi'.  
 All supported letters can be found in the 'keys' list with the corresponding two letter names in the 'keystell' list.
 
-Example for pressing 'e','m','tab' to replace it with your email
+Example for pressing 'e','m','tab' to replace it with your email:
 ```bash
 #this is an example for a '.short' file
-your.email@emailprovider.com
+your.email@provider.com
 e m ta
 ```
 
