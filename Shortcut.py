@@ -17,9 +17,13 @@ def loadfiles(): #loads files in same folder ending with '*.short'.
     word = []
     shortcut = []
 
+    
+    print('checking folder...')
     for filename in os.listdir(os.getcwd()):
         l = len(filename)
+        print('checking file: '+filename)
         if filename[l - 6:] == '.short':
+            print('found \'.short\' file: '+filename)
             loadfilename(filename)
         
     
@@ -28,9 +32,12 @@ def loadfilename(shortcutfilename):
     global word
     global shortcut
     
+    print('loading file: '+shortcutfilename)
+    
     shortcutfile = open(shortcutfilename,'r')
     
     lines = shortcutfile.readlines()
+    print('reading lines')
     index = 0
     for line in lines:
         if line[0] != '#':
@@ -38,13 +45,17 @@ def loadfilename(shortcutfilename):
                 line = line[:-1]
             if index % 2 == 0:
                 word.append(line)
+                print('appended word: '+line)
             else:
                 shortcut.append(line)
+                print('appended shortcut: '+line)
             index = index + 1
 
 def addtopressed(): #extends all lists to full.
     global pressed
+    print('extending lists')
     for i in keys:
+        print('extended: '+i)
         pressed.append(False)
         laststatuspressed.append(False)
         keymacropressed.append(False)
@@ -63,11 +74,13 @@ def updatelaststate(): #sets last frame of keystrokes.
     for i,k in enumerate(pressed):
         laststatuspressed[i] = k
 
-def checkpatterns(): #checks recorded keystrokes for shortcut patterns and, if so, executes the according command.
+def checkpatterns(): #checks recorded keystrokes for shortcut patterns, executes the according command.
     global recordedkeys
     for i,s in enumerate(shortcut):
         if recordedkeys.endswith(s):
+            print('detected pattern: ' + s)
             typeword(s,word[i])
+            print('resetting typed keys...')
             recordedkeys = ''
 
 def typeword(remove,add): #types or executes command and removes typted keys.
@@ -77,10 +90,13 @@ def typeword(remove,add): #types or executes command and removes typted keys.
     
     for x in range(0,checkforremove(remove)):
         keyboard.send('backspace')
+        print('removed key')
 
     if add[0] == '&':
+        print('executing macro')
         addmacro(add)
     else:
+        print('typing text')
         addtext(add)
 
 
@@ -95,10 +111,13 @@ def checkforremove(remove): #checks how many keys need to be removed to delete s
 def addtext(add): #types text
     for letter in add:
         if letter == '*':
+            print('sleeping...')
             time.sleep(0.1)
         elif letter == '%':
+            print('creating new line')
             keyboard.send('enter')
         else:
+            print('writing letter: '+letter)
             keyboard.write(letter)
 
 def addmacro(add): #execute macro
@@ -107,13 +126,16 @@ def addmacro(add): #execute macro
     for i in range(0,len(add),2):
         letter = add[i] + add[i+1]
         if letter == '* ':
+            print('sleeping...')
             time.sleep(0.1)
         else:
             keyindex = keystell.index(letter)
             if keymacropressed[keyindex] == False:
+                print('pressing: '+keys[keyindex])
                 keyboard.press(keys[keyindex])
                 keymacropressed[keyindex] = True
             else:
+                print('releasing: '+keys[keyindex])
                 keyboard.release(keys[keyindex])
                 keymacropressed[keyindex] = False
 
