@@ -3,6 +3,7 @@ import mouse
 import time
 import os
 
+word = []
 shortcut = []
 keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','ä','ö','ü','ß','1','2','3','4','5','6','7','8','9','0','.',',','#','space','+','-','tab','shift','ctrl','alt','enter','win']
 keystell = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g ', 'h ', 'i ', 'j ', 'k ', 'l ', 'm ', 'n ', 'o ', 'p ', 'q ', 'r ', 's ', 't ', 'u ', 'v ', 'w ', 'x ', 'y ','z ','ae','oe','ue','ss','1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','0 ','. ',', ','# ','  ','+ ','- ','ta','sh','co','al','en','wi']
@@ -23,9 +24,11 @@ def loadfiles(): #loads files in same folder ending with '*.short'.
         
     
 
-def loadfilename(shortcutfile):
+def loadfilename(shortcutfilename):
     global word
     global shortcut
+    
+    shortcutfile = open(shortcutfilename,'r')
     
     lines = shortcutfile.readlines()
     index = 0
