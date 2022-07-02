@@ -2,6 +2,10 @@ import keyboard
 import mouse
 import time
 import os
+import pyautogui
+import pytesseract as tess
+tess.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
 
 word = []
 shortcut = []
@@ -12,6 +16,21 @@ keymacropressed = [] #for macros: list for checking which keys are held down (si
 pressed = [] #holds which keys are pressed
 laststatuspressed = [] #holds which keys were pressed last frame
 recordedkeys = '' #records keypresses in variable using last and current status
+
+
+def readatcoords(xr,yr,xer,yer):
+    x,y = pyautogui.size()
+    cx = x * xr
+    cy = y * yr
+    cex = x * xer
+    cey = y * yer
+    img = pyautogui.screenshot(region=(cx,cy,cex,cey))
+    img.save('test.png')
+    text = tess.image_to_string(img)
+
+    return text
+
+
 
 def loadfiles(): #loads files in same folder ending with '*.short'.
     word = []
@@ -124,11 +143,25 @@ def addtext(add): #types text
 def addmacro(add): #execute macro
     global keymacropressed
     add = add[1:]
+    savedtext = ''
+    if add[0] + add[1] == 'tx':
+        add = add[2:]
+        last = add[-12:]
+        add = add[:-12]
+        c1 = int(last[0:3])/100
+        c2 = int(last[3:6])/100
+        c3 = int(last[6:9])/100
+        c4 = int(last[9:12])/100
+        print(f'grabbing text at {c1},{c2},{c3},{c4}')
+        savedtext = readatcoords(c1,c2,c3,c4)
+        
     for i in range(0,len(add),2):
         letter = add[i] + add[i+1]
         if letter == '* ':
             print('sleeping...')
             time.sleep(0.1)
+        elif letter == 'tx':
+            addtext(savedtext)
         else:
             keyindex = keystell.index(letter)
             if keymacropressed[keyindex] == False:
@@ -140,7 +173,7 @@ def addmacro(add): #execute macro
                 keyboard.release(keys[keyindex])
                 keymacropressed[keyindex] = False
 
-
+time.sleep(1)
 ###########-LOOP-###########
 print('#####-MADE-BY-UKII-#####')
 loadfiles()
@@ -154,7 +187,7 @@ while(True):
         recordedkeys = recordedkeys[:-2]
     checkpatterns()
 
-
+    
     #keep at end
     updatelaststate()
     lastbackspace = keyboard.is_pressed('backspace')
